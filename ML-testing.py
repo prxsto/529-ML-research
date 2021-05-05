@@ -1,11 +1,25 @@
+from sklearn.model_selection import train_test_split
+import numpy as np
+from sklearn import datasets
 import matplotlib.pyplot as plt
 
-x = [i for i in range(10)]
-print(x)
+iris = datasets.load_iris()
+# split it in features and labels
+X = iris.data
+y = iris.target
 
-y = [2*i for i in range(10)]
-print(y)
+print(X.shape)
+print(y.shape)
 
-plt.xlabel('x-axis')
-plt.ylabel('y-axis')
-plt.scatter(x,y)
+# hours of study vs good/bad grades
+# 10 different students
+# train with 8 students
+# predict with the remaining 2
+# level of accuracy
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train.shape)
+print(X_test.shape)
+print(y_train.shape)
+print(y_test.shape)
